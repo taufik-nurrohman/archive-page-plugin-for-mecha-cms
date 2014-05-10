@@ -1,0 +1,17 @@
+Title: Generator Halaman Arsip
+Author: Taufik Nurrohman <http://latitudu.com>
+Version: 1.0.0
+
+====
+
+> Generator halaman arsip untuk blog **Mecha** Anda.
+
+Setelah Anda menentukan halaman yang ingin Anda jadikan sebagai halaman arsip, edit halaman tersebut, lalu sisipkan _kode pintasan_ ini:
+
+~~~
+{{toc_archive}}
+~~~
+
+Kode di atas akan digunakan sebagai referensi untuk peletakan HTML arsip.
+
+*[HTML]: Hyper Text Markup Language

@@ -1,0 +1,1 @@
+plugin_archive_title_select_page: Pilih halaman yang ingin Anda jadikan sebagai halaman arsip:

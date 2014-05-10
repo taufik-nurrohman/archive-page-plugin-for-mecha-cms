@@ -1,0 +1,17 @@
+Title: Archive Page Generator
+Author: Taufik Nurrohman <http://latitudu.com>
+Version: 1.0.0
+
+====
+
+> Archive page generator for your **Mecha** blog.
+
+After you specify the page you want to set as the archive page, edit the page, then insert this _shortcode_:
+
+~~~
+{{toc_archive}}
+~~~
+
+The code above will be used as a reference for the archive HTML placement.
+
+*[HTML]: Hyper Text Markup Language
