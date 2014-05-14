@@ -22,5 +22,5 @@
     ?>
     </select>
   </p>
-  <p><button class="btn btn-primary btn-submit" type="submit"><i class="fa fa-check-circle"></i> <?php echo $speak->update; ?></button></p>
+  <p><button class="btn btn-primary btn-update" type="submit"><i class="fa fa-check-circle"></i> <?php echo $speak->update; ?></button></p>
 </form>
