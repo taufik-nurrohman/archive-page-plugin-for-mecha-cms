@@ -1,6 +1,6 @@
 <form class="form-plugin" action="<?php echo $config->url_current; ?>/update" method="post">
   <input name="token" type="hidden" value="<?php echo Guardian::makeToken(); ?>">
-  <p><?php echo Config::speak('plugin_archive_title_select_page'); ?></p>
+  <p><?php echo $speak->plugin_archive_title_select_page; ?></p>
   <p>
     <select name="slug" class="input-block">
     <?php

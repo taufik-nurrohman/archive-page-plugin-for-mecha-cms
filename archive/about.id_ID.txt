@@ -8,7 +8,7 @@ Version: 1.0.1
 
 Setelah Anda menentukan halaman yang ingin Anda jadikan sebagai halaman arsip, edit halaman tersebut, lalu sisipkan _kode pintasan_ ini:
 
-~~~
+~~~ .markdown
 {{toc_archive}}
 ~~~
 
