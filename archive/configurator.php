@@ -6,7 +6,7 @@
     <?php
 
     $options = array();
-    $selected = File::open(PLUGIN . '/archive/states/slug.txt')->read();
+    $selected = File::open(PLUGIN . DS . 'archive' . DS . 'states' . DS . 'slug.txt')->read();
     if($s_pages = Get::pages('ASC')) {
         foreach($s_pages as $s_page) {
             list($s_time, $s_kind, $s_slug) = explode('_', basename($s_page, '.txt'));
