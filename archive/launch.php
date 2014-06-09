@@ -7,20 +7,17 @@ if( ! $language = File::exist(PLUGIN . DS . 'archive' . DS . 'languages' . DS . 
 // Merge the plugin language parts into `Config::speak()`
 Config::merge('speak', Text::toArray(File::open($language)->read()));
 
-// Delete archive HTML cache on page update
-Weapon::add('on_page_update', function() {
+function kill_that_archive_html_plugin_cache() {
     File::open(CACHE . DS . 'plugin.archive.cache.txt')->delete();
-});
+}
 
-// Delete archive HTML cache on comment update
-Weapon::add('on_comment_update', function() {
-    File::open(CACHE . DS . 'plugin.archive.cache.txt')->delete();
-});
+// Delete archive HTML cache on article, page and comment update
+Weapon::add('on_article_update', 'kill_that_archive_html_plugin_cache');
+Weapon::add('on_page_update', 'kill_that_archive_html_plugin_cache');
+Weapon::add('on_comment_update', 'kill_that_archive_html_plugin_cache');
 
 // Delete archive HTML cache on plugin destruct
-Weapon::add('on_plugin_' . md5('archive') . '_destruct', function() {
-    File::open(CACHE . DS . 'plugin.archive.cache.txt')->delete();
-});
+Weapon::add('on_plugin_' . md5('archive') . '_destruct', 'kill_that_archive_html_plugin_cache');
 
 $slug = File::open(PLUGIN . DS . 'archive' . DS . 'states' . DS . 'slug.txt')->read();
 
