@@ -22,6 +22,7 @@ Weapon::add('on_plugin_' . md5('archive') . '_destruct', 'kill_that_archive_html
 $slug = File::open(PLUGIN . DS . 'archive' . DS . 'states' . DS . 'slug.txt')->read();
 
 if($config->url_current == $config->url . '/' . $slug) {
+
     // Use archive HTML cache if available
     if($cache = File::exist(CACHE . DS . 'plugin.archive.cache.txt')) {
         $archive_html = File::open($cache)->read();
