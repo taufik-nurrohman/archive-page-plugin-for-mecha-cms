@@ -12,7 +12,6 @@
             $options[] = $_slug;
         }
         sort($options);
-        echo '<option selected disabled>' . $speak->select . '&hellip;</option>';
         foreach($options as $option) {
             echo '<option value="' . $option . '"' . ($option == $selected ? ' selected' : "") . '>' . $config->url . '/' . $option . '</option>';
         }
