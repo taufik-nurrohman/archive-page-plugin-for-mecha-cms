@@ -13,7 +13,7 @@ Weapon::add('on_comment_update', 'kill_that_archive_html_plugin_cache');
 Weapon::add('on_plugin_' . md5('archive') . '_destruct', 'kill_that_archive_html_plugin_cache');
 
 // Load the configuration data
-$archive_config = File::open(PLUGIN . DS . 'archive' . DS . 'states' . DS . 'slug.txt')->read();
+$archive_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
 
 if($config->url_current == $config->url . '/' . $archive_config) {
 
@@ -46,7 +46,7 @@ if($config->url_current == $config->url . '/' . $archive_config) {
 
     // Replace string `{{toc_archive}}` in the
     // selected page with the HTML markup of archive
-    Filter::add('content', function($content) use($archive_html) {
+    Filter::add('shortcode', function($content) use($archive_html) {
         return str_replace('{{toc_archive}}', $archive_html, $content);
     });
 
@@ -58,13 +58,13 @@ if($config->url_current == $config->url . '/' . $archive_config) {
  * --------------
  */
 
-Route::accept($config->manager->slug . '/plugin/archive/update', function() use($config, $speak) {
+Route::accept($config->manager->slug . '/plugin/' . basename(__DIR__) . '/update', function() use($config, $speak) {
     if( ! Guardian::happy()) {
         Shield::abort();
     }
     if($request = Request::post()) {
         Guardian::checkToken($request['token']);
-        File::write($request['slug'])->saveTo(PLUGIN . DS . 'archive' . DS . 'states' . DS . 'slug.txt');
+        File::write($request['slug'])->saveTo(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt');
         Notify::success(Config::speak('notify_success_updated', array($speak->plugin)));
         Guardian::kick(dirname($config->url_current));
     }

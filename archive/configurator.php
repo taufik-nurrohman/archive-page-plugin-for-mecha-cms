@@ -5,13 +5,14 @@
     <?php
 
     $options = array();
-    $selected = File::open(PLUGIN . DS . 'archive' . DS . 'states' . DS . 'slug.txt')->read();
+    $selected = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
     if($_pages = Get::pages()) {
         foreach($_pages as $_page) {
             list($_time, $_kind, $_slug) = explode('_', basename($_page, '.txt'));
             $options[] = $_slug;
         }
         sort($options);
+        echo '<option selected disabled>' . $speak->select . '&hellip;</option>';
         foreach($options as $option) {
             echo '<option value="' . $option . '"' . ($option == $selected ? ' selected' : "") . '>' . $config->url . '/' . $option . '</option>';
         }
