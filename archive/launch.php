@@ -1,7 +1,7 @@
 <?php
 
 function kill_that_archive_html_plugin_cache() {
-    File::open(CACHE . DS . 'plugin.archive.cache.txt')->delete();
+    File::open(CACHE . DS . 'plugin.archive.cache')->delete();
 }
 
 // Delete archive HTML cache on article, page and comment update
@@ -18,7 +18,7 @@ $archive_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . D
 if($config->url_current == $config->url . '/' . $archive_config) {
 
     // Use archive HTML cache if available
-    if($cache = File::exist(CACHE . DS . 'plugin.archive.cache.txt')) {
+    if($cache = File::exist(CACHE . DS . 'plugin.archive.cache')) {
         $archive_html = File::open($cache)->read();
     } else {
         // If not, create one!
@@ -41,7 +41,7 @@ if($config->url_current == $config->url . '/' . $archive_config) {
         }
         $archive_html .= '</ul>';
         // Create new cache file for your archive page
-        File::write($archive_html)->saveTo(CACHE . DS . 'plugin.archive.cache.txt');
+        File::write($archive_html)->saveTo(CACHE . DS . 'plugin.archive.cache');
     }
 
     // Replace string `{{toc_archive}}` in the
