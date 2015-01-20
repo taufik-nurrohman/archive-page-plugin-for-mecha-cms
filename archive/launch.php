@@ -10,7 +10,7 @@ Weapon::add('on_page_update', 'kill_that_archive_html_plugin_cache');
 Weapon::add('on_comment_update', 'kill_that_archive_html_plugin_cache');
 
 // Delete archive HTML cache on plugin destruct
-Weapon::add('on_plugin_' . md5('archive') . '_destruct', 'kill_that_archive_html_plugin_cache');
+Weapon::add('on_plugin_' . md5(basename(__DIR__)) . '_destruct', 'kill_that_archive_html_plugin_cache');
 
 // Load the configuration data
 $archive_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
