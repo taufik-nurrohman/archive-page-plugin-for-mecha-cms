@@ -15,7 +15,7 @@ Weapon::add('on_plugin_' . md5(basename(__DIR__)) . '_destruct', 'kill_that_arch
 // Load the configuration data
 $archive_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
 
-if($config->url_current == $config->url . '/' . $archive_config) {
+if($config->url_path === $archive_config) {
 
     // Use archive HTML cache if available
     if($cache = File::exist(CACHE . DS . 'plugin.archive.cache')) {
@@ -65,7 +65,7 @@ Route::accept($config->manager->slug . '/plugin/' . basename(__DIR__) . '/update
     if($request = Request::post()) {
         Guardian::checkToken($request['token']);
         File::write($request['slug'])->saveTo(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt');
-        Notify::success(Config::speak('notify_success_updated', array($speak->plugin)));
+        Notify::success(Config::speak('notify_success_updated', $speak->plugin));
         Guardian::kick(dirname($config->url_current));
     }
 });
