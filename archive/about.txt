@@ -9,7 +9,7 @@ Version: 1.1.0
 
 After you specify the page you want to set as the archive page, edit the page, then insert this _shortcode_:
 
-~~~ .markdown
+~~~ .no-highlight
 {{toc_archive}}
 ~~~
 
