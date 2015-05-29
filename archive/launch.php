@@ -30,7 +30,8 @@ if($config->url_path === $archive_config) {
             $post = Get::articleAnchor($posts[$i]);
             $time = Date::extract($post->time);
             $all_comments = Get::comments($post->time);
-            $total_comments_text = ($all_comments !== false ? count($all_comments) : 0) . ' ' . (count($all_comments) > 1 ? $speak->comments : $speak->comment);
+            $number = $all_comments !== false ? count($all_comments) : 0;
+            $total_comments_text = $number . ' ' . ($number === 1 ? $speak->comment : $speak->comments);
             $archive_header = $config->widget_year_first ? ($time['year'] . ' ' . $time['month_name']) : ($time['month_name'] . ' ' . $time['year']);
             if ($archive_header_cache != $archive_header) {
                 $archive_html .= ($i > 0 ? '</ul>' : "") . '<h5><a href="' . $config->url . '/' . $config->archive->slug . '/' . substr($post->time, 0, 7) . '">' . $archive_header . '</a></h5>';
