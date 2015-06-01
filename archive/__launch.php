@@ -19,9 +19,6 @@ Weapon::add('on_plugin_' . md5(basename(__DIR__)) . '_destruct', 'kill_that_arch
  */
 
 Route::accept($config->manager->slug . '/plugin/' . basename(__DIR__) . '/update', function() use($config, $speak) {
-    if( ! Guardian::happy()) {
-        Shield::abort();
-    }
     if($request = Request::post()) {
         Guardian::checkToken($request['token']);
         File::write($request['slug'])->saveTo(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt');
