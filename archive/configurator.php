@@ -3,10 +3,10 @@
   <?php
 
   $options = array();
-  $selected = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
+  $selected = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
   if($_pages = Get::pages()) {
       foreach($_pages as $_page) {
-          list($_time, $_kind, $_slug) = explode('_', basename($_page, '.txt'));
+          list($_time, $_kind, $_slug) = explode('_', File::N($_page), 3);
           $options[$_slug] = Get::articleAnchor($_page)->title;
       }
       ksort($options);

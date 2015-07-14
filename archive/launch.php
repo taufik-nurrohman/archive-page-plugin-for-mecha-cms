@@ -1,7 +1,7 @@
 <?php
 
 // Load the configuration data
-$archive_config = File::open(PLUGIN . DS . basename(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
+$archive_config = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'slug.txt')->read();
 
 if(Route::is($archive_config)) {
 
@@ -36,6 +36,9 @@ if(Route::is($archive_config)) {
     // Replace string `{{toc_archive}}` in the
     // selected page with the HTML markup of archive
     Filter::add('shortcode', function($content) use($archive_html) {
+        if( ! Text::check($content)->has('{{toc_archive}}')) {
+            return $content . $archive_html;
+        }
         return str_replace('{{toc_archive}}', $archive_html, $content);
     });
 
