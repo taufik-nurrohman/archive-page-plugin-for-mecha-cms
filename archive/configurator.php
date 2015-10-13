@@ -13,7 +13,8 @@
       asort($options);
       foreach(glob(PLUGIN . DS . File::B(__DIR__) . DS . 'workers' . DS . '*.php') as $radio) {
           $radio = File::N($radio);
-          $radios[$radio] = ucfirst(Text::parse($radio, '->text'));
+          $title = Text::parse($radio, '->text');
+          $radios[$radio] = $title ? ucfirst($title) : $speak->none;
       }
       echo '<p>' . $speak->plugin_archive_title_select_page . '</p>';
       echo '<p>' . Form::select('slug', $options, $archive_config['slug']) . ' ' . Jot::button('action', $speak->update) . '</p>';

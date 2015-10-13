@@ -1,6 +1,5 @@
 <?php
 
-$archive_html = "";
 $archive_header = "";
 $archive_header_cache = "";
 $posts = Get::articles('DESC');

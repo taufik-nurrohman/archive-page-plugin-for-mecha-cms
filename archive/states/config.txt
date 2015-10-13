@@ -1,1 +1,1 @@
-a:2:{s:4:"slug";s:0:"";s:4:"kind";s:9:"hierarchy";}
+a:2:{s:4:"slug";s:0:"";s:4:"kind";s:2:"__";}
