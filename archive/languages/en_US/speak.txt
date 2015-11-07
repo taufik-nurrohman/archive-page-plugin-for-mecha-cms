@@ -1,1 +1,5 @@
-plugin_archive_title_select_page: Select the page you want to set as the archive page:
+plugin_archive_description_select_page: Select the page you want to set as the archive page:
+plugin_archive_mode:
+  __: Flat
+  kind: By Tag
+  time: By Date

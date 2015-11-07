@@ -11,12 +11,12 @@
           $options[$_slug] = Get::articleAnchor($_page)->title;
       }
       asort($options);
+      $k = (array) $speak->plugin_archive_mode;
       foreach(glob(PLUGIN . DS . File::B(__DIR__) . DS . 'workers' . DS . '*.php') as $radio) {
           $radio = File::N($radio);
-          $title = Text::parse($radio, '->text');
-          $radios[$radio] = $title ? ucfirst($title) : $speak->none;
+          $radios[$radio] = isset($k[$radio]) ? $k[$radio] : Text::parse($radio, '->title');
       }
-      echo '<p>' . $speak->plugin_archive_title_select_page . '</p>';
+      echo '<p>' . $speak->plugin_archive_description_select_page . '</p>';
       echo '<p>' . Form::select('slug', $options, $archive_config['slug']) . ' ' . Jot::button('action', $speak->update) . '</p>';
       echo '<p>' . Form::radio('kind', $radios, $archive_config['kind']) . '</p>';
   } else {
