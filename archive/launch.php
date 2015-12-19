@@ -1,7 +1,7 @@
 <?php
 
 // Load the configuration data
-$archive_config = File::open(PLUGIN . DS . File::B(__DIR__) . DS . 'states' . DS . 'config.txt')->unserialize();
+$archive_config = File::open(__DIR__ . DS . 'states' . DS . 'config.txt')->unserialize();
 
 if(Route::is($archive_config['slug'])) {
     // Use archive HTML cache if available
@@ -10,7 +10,7 @@ if(Route::is($archive_config['slug'])) {
     } else {
         // If not, create one!
         $archive_html = "";
-        include PLUGIN . DS . File::B(__DIR__) . DS . 'workers' . DS . $archive_config['kind'] . '.php';
+        include __DIR__ . DS . 'workers' . DS . $archive_config['kind'] . '.php';
         // Create new cache file for your archive page
         File::write($archive_html)->saveTo(CACHE . DS . 'plugin.archive.cache');
     }

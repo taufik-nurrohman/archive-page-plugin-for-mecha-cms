@@ -1,5 +1,5 @@
 plugin_archive_description_select_page: Pilih halaman yang ingin Anda jadikan sebagai halaman arsip:
 plugin_archive_mode:
   __: Lurus
-  kind: Berdasarkan Label
-  time: Berdasarkan Tanggal
+  kind: Sortir Berdasarkan Label
+  time: Sortir Berdasarkan Tanggal

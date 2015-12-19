@@ -6,7 +6,7 @@ if($posts = Get::articles('DESC')) {
     for($i = 0, $count = count($posts); $i < $count; ++$i) {
         $post = Get::articleAnchor($posts[$i]);
         $time = Date::extract($post->time);
-        $all_comments = Get::comments($post->time);
+        $all_comments = Get::comments('DESC', 'post:' . $time['slug']);
         $number = $all_comments !== false ? count($all_comments) : 0;
         $total_comments_text = $number . ' ' . ($number === 1 ? $speak->comment : $speak->comments);
         $archive_header = $time['month_name'] . ' ' . $time['year'];

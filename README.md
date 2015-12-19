@@ -1,11 +1,12 @@
 Archive Page Plugin for Mecha CMS
 =================================
 
-> Archive page generator for Mecha CMS.
+> Archive page generator for your Mecha blog.
 
-Screenshot
-----------
+After you specify the page you want to set as the archive page, edit the page, then insert this _shortcode_:
 
-[![Archive Page Screenshot](http://lh6.googleusercontent.com/-782TBGf7FkA/U22Jf9EZ5dI/AAAAAAAAB7g/3bIofp7oXPE/s400/archive-page-plugin-for-mecha-cms.png)](http://lh6.googleusercontent.com/-782TBGf7FkA/U22Jf9EZ5dI/AAAAAAAAB7g/3bIofp7oXPE/s1600/archive-page-plugin-for-mecha-cms.png)
+~~~ .no-highlight
+{{toc_archive}}
+~~~
 
-Upload the `archive` folder along with its contents through the plugin uploader. You need to compress the folder into a ZIP file to simplify the uploading process. After that, go to the plugin manager page and follow the instructions on the **About** tab.
+The code above will be used as a reference for the archive HTML placement.
