@@ -21,5 +21,5 @@ if(Route::is($archive_config['slug'])) {
             return $content . $archive_html;
         }
         return str_replace('{{toc_archive}}', $archive_html, $content);
-    }, 9);
+    });
 }
