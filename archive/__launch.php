@@ -28,7 +28,7 @@ Route::accept($config->manager->slug . '/plugin/' . File::B(__DIR__) . '/update'
         unset($request['token']);
         File::serialize($request)->saveTo(__DIR__ . DS . 'states' . DS . 'config.txt', 0600);
         do_remove_archive_cache();
-        Notify::success(Config::speak('notify_success_updated', $speak->plugin) . ' <a class="pull-right" href="' . Filter::colon('page:url', $config->url . '/' . $request['slug']) . '" target="_blank">' . Jot::icon('eye') . ' ' . $speak->view . '</a>');
+        Notify::success(Config::speak('notify_success_updated', $speak->plugin) . ($request['slug'] ? ' <a class="pull-right" href="' . Filter::colon('page:url', $config->url . '/' . $request['slug']) . '" target="_blank">' . Jot::icon('eye') . ' ' . $speak->view . '</a>' : ""));
         Guardian::kick(File::D($config->url_current));
     }
 });

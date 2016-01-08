@@ -11,6 +11,7 @@
           $options[$_slug] = Get::pageAnchor($_page)->title;
       }
       asort($options);
+      $options = array("" => '&mdash; ' . $speak->none . ' &mdash;') + $options;
       $k = (array) $speak->plugin_archive_mode;
       foreach(glob(__DIR__ . DS . 'workers' . DS . '*.php') as $radio) {
           $radio = File::N($radio);
