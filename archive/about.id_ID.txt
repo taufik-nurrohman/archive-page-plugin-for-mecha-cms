@@ -1,7 +1,7 @@
 Title: Generator Halaman Arsip
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.3.0
+Version: 1.3.1
 
 ====
 
@@ -10,7 +10,7 @@ Version: 1.3.0
 Setelah Anda menentukan halaman yang ingin Anda jadikan sebagai halaman arsip, edit halaman tersebut, lalu sisipkan _kode pintasan_ ini:
 
 ~~~ .no-highlight
-{{toc_archive}}
+`{{toc_archive}}`
 ~~~
 
 Kode di atas akan digunakan sebagai referensi untuk peletakan HTML arsip.
