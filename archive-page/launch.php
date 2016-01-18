@@ -1,18 +1,18 @@
 <?php
 
 // Load the configuration data
-$archive_config = File::open(__DIR__ . DS . 'states' . DS . 'config.txt')->unserialize();
+$archive_page_config = File::open(__DIR__ . DS . 'states' . DS . 'config.txt')->unserialize();
 
-if(Route::is($archive_config['slug'])) {
+if(Route::is($archive_page_config['slug'])) {
     // Use archive HTML cache if available
-    if($cache = File::exist(CACHE . DS . 'plugin.archive.cache')) {
+    if($cache = File::exist(CACHE . DS . 'plugin.archive-page.cache')) {
         $archive_html = File::open($cache)->read();
     } else {
         // If not, create one!
         $archive_html = "";
-        include __DIR__ . DS . 'workers' . DS . $archive_config['kind'] . '.php';
+        include __DIR__ . DS . 'workers' . DS . $archive_page_config['kind'] . '.php';
         // Create new cache file for your archive page
-        File::write($archive_html)->saveTo(CACHE . DS . 'plugin.archive.cache');
+        File::write($archive_html)->saveTo(CACHE . DS . 'plugin.archive-page.cache');
     }
     // Replace string `{{toc_archive}}` in the
     // selected page with the HTML markup of archive

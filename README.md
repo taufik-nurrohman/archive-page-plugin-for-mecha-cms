@@ -1,7 +1,7 @@
 Archive Page Plugin for Mecha CMS
 =================================
 
-> Archive page generator for your Mecha blog.
+> Archive page generator.
 
 After you specify the page you want to set as the archive page, edit the page, then insert this _shortcode_:
 

@@ -1,11 +1,11 @@
 Title: Generator Halaman Arsip
 Author: Taufik Nurrohman
 URL: http://latitudu.com
-Version: 1.3.1
+Version: 1.3.2
 
 ====
 
-> Generator halaman arsip untuk blog Mecha Anda.
+> Generator halaman arsip.
 
 Setelah Anda menentukan halaman yang ingin Anda jadikan sebagai halaman arsip, edit halaman tersebut, lalu sisipkan _kode pintasan_ ini:
 
